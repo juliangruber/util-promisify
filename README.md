@@ -15,11 +15,11 @@ Supports [all major node versions](https://github.com/nodejs/LTS#lts-schedule1).
 const promisify = require('util-promisify');
 const fs = require('fs');
 
-const stat = promisify(fs.stat)
+const stat = promisify(fs.stat);
 
 stat('/tmp/').then(s => {
   // ...
-})
+});
 ```
 
 ## Installation
