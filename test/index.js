@@ -186,3 +186,9 @@ if (Number(process.version[1]) >= 7) eval`
     })
   ]);
 }
+
+if (Number(process.version[1]) >= 8)
+{
+  const coreUtil = require('util');
+  assert.strictEqual(coreUtil.promisify.custom, promisify.custom);
+}

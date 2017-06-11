@@ -36,6 +36,8 @@ See `util.promisify`'s [API docs](https://nodejs.org/api/util.html#util_util_pro
 ### (Symbol) promisify.custom
 ### (Symbol) promsifiy.customPromisifyArgs
 
+If available, the Symbols are reexported from node core's `util` module.
+
 ## License
 
 MIT

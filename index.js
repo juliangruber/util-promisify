@@ -1,8 +1,9 @@
 'use strict';
 
 const ObjectGetOwnPropertyDescriptors = require('object.getownpropertydescriptors');
+const util = require('util');
 
-const kCustomPromisifiedSymbol = Symbol('util.promisify.custom');
+const kCustomPromisifiedSymbol = util.promisify && util.promisify.custom || Symbol('util.promisify.custom');
 const kCustomPromisifyArgsSymbol = Symbol('customPromisifyArgs');
 
 function promisify(orig) {
