@@ -1,7 +1,7 @@
 
 # util-promisify
 
-Node 8's [`require('util').promisify`](https://nodejs.org/api/util.html#util_util_promisify_original) as a node module so you can use it right now!
+Node 8's [`require('util').promisify`](https://nodejs.org/api/util.html#util_util_promisify_original) as a node module, so you can use it right now!
 
 Supports [all major node versions](https://github.com/nodejs/LTS#lts-schedule1).
 
