@@ -32,7 +32,7 @@ $ npm install util-promisify
 
 See `util.promisify`'s [API docs](https://nodejs.org/api/util.html#util_util_promisify_original).
 
-### promifisy(original)
+### promisify(original)
 ### (Symbol) promisify.custom
 ### (Symbol) promsifiy.customPromisifyArgs
 
