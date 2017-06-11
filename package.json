@@ -1,6 +1,6 @@
 {
   "name": "util-promisify",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "license": "MIT",
   "description": "Node 8's util.promisify, as a node module",
   "repository": "juliangruber/util-promisify",
