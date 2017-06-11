@@ -36,12 +36,12 @@ function promisify(orig) {
     for (var i = 0; i < arguments.length; i ++) args.push(arguments[i]);
 
     let resolve, reject;
-    const promise = new Promise((_resolve, _reject) => {
+    const promise = new Promise(function (_resolve, _reject) {
       resolve = _resolve;
       reject = _reject;
     });
     try {
-      orig.call(this, ...args, function (err) {
+      orig.apply(this, args.concat(function (err) {
         var values = [];
         for (var i = 1; i < arguments.length; i++) values.push(arguments[i]);
         if (err) {
@@ -54,7 +54,7 @@ function promisify(orig) {
         } else {
           resolve(values[0]);
         }
-      });
+      }));
     } catch (err) {
       reject(err);
     }

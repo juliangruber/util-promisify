@@ -1,7 +1,9 @@
 
 # util-promisify
 
-Node 8's [`require('util').promisify`](https://nodejs.org/api/util.html#util_util_promisify_original) as a node module to be used in Node versions 5-8.
+Node 8's [`require('util').promisify`](https://nodejs.org/api/util.html#util_util_promisify_original) as a node module so you can use it now!
+
+Currently supports Node versions 4-8.
 
 [![build status](https://secure.travis-ci.org/juliangruber/util-promisify.svg)](http://travis-ci.org/juliangruber/util-promisify)
 [![downloads](https://img.shields.io/npm/dm/util-promisify.svg)](https://www.npmjs.org/package/util-promisify)
