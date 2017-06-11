@@ -31,13 +31,19 @@ function promisify(orig) {
   // arguments, e.g. ['stdout', 'stderr'] for child_process.exec.
   const argumentNames = orig[kCustomPromisifyArgsSymbol];
 
-  function fn(...args) {
+  function fn() {
+    var args = [];
+    for (var i = 0; i < arguments.length; i ++) args.push(arguments[i]);
+
     let resolve, reject;
     const promise = new Promise((_resolve, _reject) => {
-      [resolve, reject] = [_resolve, _reject];
+      resolve = _resolve;
+      reject = _reject;
     });
     try {
-      orig.call(this, ...args, (err, ...values) => {
+      orig.call(this, ...args, function (err) {
+        var values = [];
+        for (var i = 1; i < arguments.length; i++) values.push(arguments[i]);
         if (err) {
           reject(err);
         } else if (argumentNames !== undefined && values.length > 1) {

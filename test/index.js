@@ -5,7 +5,7 @@ const assert = require('assert');
 const fs = require('fs');
 const vm = require('vm');
 const promisify = require('..');
-const { customPromisifyArgs } = require('..');
+const customPromisifyArgs = require('..').customPromisifyArgs;
 
 const stat = promisify(fs.stat);
 
