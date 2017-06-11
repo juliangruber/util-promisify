@@ -108,7 +108,9 @@ const stat = promisify(fs.stat);
   }));
 }
 
+if (Number(process.version[1]) >= 7) eval`
 {
+
   function fn(err, val, callback) {
     callback(err, val);
   }
@@ -117,7 +119,7 @@ const stat = promisify(fs.stat);
     const value = await promisify(fn)(null, 42);
     assert.strictEqual(value, 42);
   })();
-}
+}`
 
 {
   const o = {};
@@ -133,6 +135,7 @@ const stat = promisify(fs.stat);
   }));
 }
 
+if (Number(process.version[1]) >= 7) eval`
 {
   const err = new Error('Should not have called the callback with the error.');
   const stack = err.stack;
@@ -147,7 +150,7 @@ const stat = promisify(fs.stat);
     await Promise.resolve();
     return assert.strictEqual(stack, err.stack);
   })();
-}
+}`
 
 {
   function c() { }

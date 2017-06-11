@@ -1,5 +1,7 @@
 'use strict';
 
+const ObjectGetOwnPropertyDescriptors = require('object.getownpropertydescriptors');
+
 const kCustomPromisifiedSymbol = Symbol('util.promisify.custom');
 const kCustomPromisifyArgsSymbol = Symbol('customPromisifyArgs');
 
@@ -58,7 +60,7 @@ function promisify(orig) {
   Object.defineProperty(fn, kCustomPromisifiedSymbol, {
     value: fn, enumerable: false, writable: false, configurable: true
   });
-  return Object.defineProperties(fn, Object.getOwnPropertyDescriptors(orig));
+  return Object.defineProperties(fn, ObjectGetOwnPropertyDescriptors(orig));
 }
 
 promisify.custom = kCustomPromisifiedSymbol;

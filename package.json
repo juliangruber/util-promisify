@@ -6,5 +6,8 @@
   "repository": "juliangruber/util-promisify",
   "scripts": {
     "test": "node test"
+  },
+  "dependencies": {
+    "object.getownpropertydescriptors": "^2.0.3"
   }
 }
