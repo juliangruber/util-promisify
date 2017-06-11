@@ -5,7 +5,7 @@ Node 8's [`require('util').promisify`](https://nodejs.org/api/util.html#util_uti
 
 Supports [all major node versions](https://github.com/nodejs/LTS#lts-schedule1).
 
-[![build status](https://secure.travis-ci.org/juliangruber/util-promisify.svg)](http://travis-ci.org/juliangruber/util-promisify)
+[![build status](https://travis-ci.org/juliangruber/util-promisify.svg?branch=master)](http://travis-ci.org/juliangruber/util-promisify)
 [![downloads](https://img.shields.io/npm/dm/util-promisify.svg)](https://www.npmjs.org/package/util-promisify)
 [![Greenkeeper badge](https://badges.greenkeeper.io/juliangruber/util-promisify.svg)](https://greenkeeper.io/)
 
