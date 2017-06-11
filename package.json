@@ -1,0 +1,10 @@
+{
+  "name": "util-promisify",
+  "version": "0.0.0",
+  "license": "MIT",
+  "description": "Node 8's util.promisify, as a node module",
+  "repository": "juliangruber/util-promisify",
+  "scripts": {
+    "test": "node test"
+  }
+}
