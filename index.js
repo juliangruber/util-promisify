@@ -4,7 +4,7 @@ const ObjectGetOwnPropertyDescriptors = require('object.getownpropertydescriptor
 const util = require('util');
 
 const kCustomPromisifiedSymbol = util.promisify && util.promisify.custom || Symbol('util.promisify.custom');
-const kCustomPromisifyArgsSymbol = Symbol('customPromisifyArgs');
+//const kCustomPromisifyArgsSymbol = Symbol('customPromisifyArgs');
 
 function promisify(orig) {
   if (typeof orig !== 'function') {
@@ -30,7 +30,7 @@ function promisify(orig) {
 
   // Names to create an object from in case the callback receives multiple
   // arguments, e.g. ['stdout', 'stderr'] for child_process.exec.
-  const argumentNames = orig[kCustomPromisifyArgsSymbol];
+  //const argumentNames = orig[kCustomPromisifyArgsSymbol];
 
   function fn() {
     var args = [];
@@ -47,11 +47,11 @@ function promisify(orig) {
         for (var i = 1; i < arguments.length; i++) values.push(arguments[i]);
         if (err) {
           reject(err);
-        } else if (argumentNames !== undefined && values.length > 1) {
-          const obj = {};
-          for (var i = 0; i < argumentNames.length; i++)
-            obj[argumentNames[i]] = values[i];
-          resolve(obj);
+        //} else if (argumentNames !== undefined && values.length > 1) {
+        //  const obj = {};
+        //  for (var i = 0; i < argumentNames.length; i++)
+        //    obj[argumentNames[i]] = values[i];
+        //  resolve(obj);
         } else {
           resolve(values[0]);
         }
@@ -71,6 +71,5 @@ function promisify(orig) {
 }
 
 promisify.custom = kCustomPromisifiedSymbol;
-promisify.customPromisifyArgs = kCustomPromisifyArgsSymbol;
 
 module.exports = promisify;

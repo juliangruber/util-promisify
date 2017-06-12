@@ -5,7 +5,7 @@ const assert = require('assert');
 const fs = require('fs');
 const vm = require('vm');
 const promisify = require('..');
-const customPromisifyArgs = require('..').customPromisifyArgs;
+//const customPromisifyArgs = require('..').customPromisifyArgs;
 
 const stat = promisify(fs.stat);
 
@@ -42,7 +42,7 @@ const stat = promisify(fs.stat);
                                 'be a function');
 }
 
-{
+/*{
   const firstValue = 5;
   const secondValue = 17;
 
@@ -55,7 +55,7 @@ const stat = promisify(fs.stat);
   promisify(fn)().then(common.mustCall((obj) => {
     assert.deepStrictEqual(obj, {first: firstValue, second: secondValue});
   }));
-}
+}*/
 
 {
   const fn = vm.runInNewContext('(function() {})');
