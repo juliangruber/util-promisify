@@ -48,3 +48,9 @@ exports.mustCall = function(fn, expected) {
     return fn.apply(this, arguments);
   };
 };
+
+// Crash the process on unhandled rejections.
+exports.crashOnUnhandledRejection = function() {
+  process.on('unhandledRejection',
+             (err) => process.nextTick(() => { throw err; }));
+};

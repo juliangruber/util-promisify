@@ -2,6 +2,7 @@
 
 const ObjectGetOwnPropertyDescriptors = require('object.getownpropertydescriptors');
 const util = require('util');
+const timers = require('timers');
 
 const kCustomPromisifiedSymbol = util.promisify && util.promisify.custom || Symbol('util.promisify.custom');
 //const kCustomPromisifyArgsSymbol = Symbol('customPromisifyArgs');
@@ -14,6 +15,21 @@ function promisify(orig) {
     err.code = 'ERR_INVALID_ARG_TYPE';
     err.name = `TypeError [${err.code}]`;
     throw err
+  }
+
+  if (orig === timers.setTimeout || orig === timers.setImmediate) {
+    const _orig = orig
+    orig = function () {
+      var args = [];
+      for (var i = 0; i < arguments.length; i ++) args.push(arguments[i]);
+      const _cb = args.pop()
+      const cb = function () {
+        var args = [];
+        for (var i = 0; i < arguments.length; i ++) args.push(arguments[i]);
+        _cb.apply(null, [null].concat(args))
+      }
+      _orig.apply(timers, [cb].concat(args))
+    }
   }
 
   if (orig[kCustomPromisifiedSymbol]) {
