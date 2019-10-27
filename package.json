@@ -8,6 +8,6 @@
     "test": "node test"
   },
   "dependencies": {
-    "object.getownpropertydescriptors": "^2.0.3"
+    "object-descriptors": "^0.2.0"
   }
 }
