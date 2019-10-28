@@ -1,6 +1,6 @@
 'use strict';
 
-const ObjectGetOwnPropertyDescriptors = require('object.getownpropertydescriptors');
+const ObjectGetOwnPropertyDescriptors = require('object-descriptors');
 const util = require('util');
 const timers = require('timers');
 
