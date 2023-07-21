@@ -1,1 +1,5 @@
-39bfa4b83d6e2158a9fa0959759ce04d7abe0934
+## Security contact information
+
+To report a security vulnerability, please use the
+[Tidelift security contact](https://tidelift.com/security).
+Tidelift will coordinate the fix and disclosure.
